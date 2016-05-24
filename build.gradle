@@ -35,14 +35,14 @@ allprojects { Project project ->
 
 	task ci (dependsOn: ['clean', 'applyVersion', 'build'])
 
-	task applyVersion << { task ->
+	task applyVersion << {
 
-		task.project.tasks.jar.baseName = task.project.name
+		project.tasks.jar.baseName = project.name
 
-		if (task.project.ciBuildID) {
-			task.project.jar.version = "${task.project.version}-${task.project.ciBuildID}"
+		if (project.ciBuildID) {
+			project.jar.version = "${project.version}-${project.ciBuildID}"
 		} else {
-			task.project.jar.version = "${task.project.version}-SNAPSHOT"
+			project.jar.version = "${project.version}-SNAPSHOT"
 		}
 	}
 }
