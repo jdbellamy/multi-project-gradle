@@ -21,8 +21,8 @@ targetCompatibility = 1.8
 version = '0.0.1'
 
 ext {
-//	ciBuildID = '1234567890';
-	ciBuildID = null;
+	ciBuildID = '1234567890';
+//	ciBuildID = null;
 }
 
 allprojects { Project project ->
@@ -33,7 +33,7 @@ allprojects { Project project ->
 		maven { url "https://repo.spring.io/milestone" }
 	}
 
-	task ci (dependsOn: ['clean', 'applyVersion', 'build'])
+	task ci (dependsOn: ['applyVersion', 'build'])
 
 	task applyVersion << {
 
